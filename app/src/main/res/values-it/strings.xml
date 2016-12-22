@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lupus in Tabula</string>
+    <string name="add_player_button">Aggiungi</string>
+    <string name="new_player_name">Nome Giocatore</string>
+    <string name="next">Avanti</string>
+</resources>
