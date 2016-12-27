@@ -20,22 +20,23 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            style="?android:attr/borderlessButtonStyle"
+
             android:text="@string/add_player_button" />
 
         <EditText
             android:id="@+id/add_player_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:gravity="start"
             android:inputType="textCapWords"
             android:layout_toLeftOf="@id/add_player_button"
-
             android:hint="@string/new_player_name" />
     </RelativeLayout>
 
     <ListView
         android:id="@+id/list"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="top">
@@ -43,6 +44,7 @@
     </ListView>
 
     <Button
+        android:id="@+id/button_next"
         android:layout_gravity="end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
