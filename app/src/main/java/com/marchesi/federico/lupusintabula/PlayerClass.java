@@ -1,5 +1,7 @@
 package com.marchesi.federico.lupusintabula;
 
+import java.util.ArrayList;
+
 /**
  * Created by federico.marchesi on 23/12/2016.
  */

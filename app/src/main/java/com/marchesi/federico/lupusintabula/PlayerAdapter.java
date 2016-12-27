@@ -70,4 +70,5 @@ public class PlayerAdapter extends ArrayAdapter<PlayerClass> {
         // Return the completed view to render on screen
         return convertView;
     }
+
 }

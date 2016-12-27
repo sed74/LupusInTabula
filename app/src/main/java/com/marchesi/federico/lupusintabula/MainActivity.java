@@ -12,6 +12,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -53,7 +55,10 @@ public class MainActivity extends AppCompatActivity {
                 String playerName;
                 TextView nameTextView = (TextView) findViewById(R.id.add_player_text);
                 playerName = nameTextView.getText().toString();
-                addPlayer(playerName);
+                if (TextUtils.isEmpty(playerName)) {
+                    return;
+                }
+                if (addPlayer(playerName))
                 nameTextView.setText(null);
             }
         });
@@ -69,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
         View view = this.getCurrentFocus();
         if (view != null) {
-            InputMethodManager imm = (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
+            InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
@@ -81,9 +86,8 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Login details are saved..", Toast.LENGTH_SHORT).show();
     }
 
-    private void init(){
-        itemsAdapter =
-                new PlayerAdapter(this, playerNames);
+    private void init() {
+        itemsAdapter = new PlayerAdapter(this, playerNames);
 
         ListView listView = (ListView) findViewById(R.id.list);
 
@@ -97,21 +101,25 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void addPlayer(String playerName){
-        playerNames.add(new PlayerClass(playerName, true));
+    private boolean addPlayer(String playerName) {
+        if (contains(playerNames, playerName)) {
+            return false;
+        }
+        PlayerClass temp = new PlayerClass(playerName, true);
+
+        playerNames.add(temp);
         itemsAdapter.notifyDataSetChanged();
+        return true;
     }
 
-    private static boolean saveArray(Context mContext)
-    {
+    private static boolean saveArray(Context mContext) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(mContext);
         SharedPreferences.Editor mEdit1 = sp.edit();
         mEdit1.clear();
     /* sKey is an array */
         mEdit1.putInt(NO_OF_PLAYER, playerNames.size());
 
-        for(int i=0;i<playerNames.size();i++)
-        {
+        for (int i = 0; i < playerNames.size(); i++) {
 //            mEdit1.remove(PLAYER_NAME + i);
             mEdit1.putString(PLAYER_NAME + i, playerNames.get(i).getPlayerName());
 
@@ -121,21 +129,49 @@ public class MainActivity extends AppCompatActivity {
         return mEdit1.commit();
     }
 
-    public static void loadArray(Context mContext)
-    {
+    public static void loadArray(Context mContext) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(mContext);
         playerNames.clear();
         int size = sp.getInt(NO_OF_PLAYER, 0);
         String playerName;
-        boolean isPlayerSelected=false;
+        boolean isPlayerSelected;
 
-        for(int i=0;i<size;i++)
-        {
+        for (int i = 0; i < size; i++) {
             playerName = sp.getString(PLAYER_NAME + i, null);
             isPlayerSelected = sp.getBoolean(PLAYER_IS_SELECTED + i, false);
             playerNames.add(new PlayerClass(playerName, isPlayerSelected));
         }
 
     }
+
+    private boolean contains(ArrayList<PlayerClass> players, String name) {
+        for (PlayerClass item : players) {
+            if (item.getPlayerName().equalsIgnoreCase(name)) {
+                Toast errMsg = Toast.makeText(this, R.string.name_existing, Toast.LENGTH_SHORT);
+                errMsg.setGravity(Gravity.TOP, 0, 300);
+                errMsg.show();
+//                AlertDialog.Builder miaAlert = new AlertDialog.Builder(this);
+//                miaAlert.setTitle(R.string.name_existing);
+//                miaAlert.setMessage(R.string.name_existing_long);
+//                miaAlert.setCancelable(false);
+//                miaAlert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//
+//                    }
+//                });
+//
+//                miaAlert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//
+//                    }
+//                });
+//                AlertDialog alert = miaAlert.create();
+//                alert.show();
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }

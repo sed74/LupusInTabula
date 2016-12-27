@@ -3,4 +3,7 @@
     <string name="new_player_name">Player Name</string>
     <string name="add_player_button">Add</string>
     <string name="next">Next</string>
+    <string name="name_existing">Name already existing.</string>
+    <string name="name_existing_long">The entered name already exists.</string>
+    <string name="ok">Ok</string>
 </resources>
