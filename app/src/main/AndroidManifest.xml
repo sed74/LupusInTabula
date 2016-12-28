@@ -15,6 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RuleSetup"
+            android:label="@string/title_activity_role_setup"
+            android:parentActivityName="com.marchesi.federico.lupusintabula.MainActivity"></activity>
     </application>
 
 </manifest>

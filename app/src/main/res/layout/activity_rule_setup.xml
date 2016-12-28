@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cnf_layout_roles"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/padding">
+
+    <TextView
+        android:id="@+id/no_of_players"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="@string/no_of_player_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/SetupRoleCountText"
+            android:text="@string/cnf_werewolf_count_label" />
+
+        <com.marchesi.federico.lupusintabula.NumberPickerView
+            android:id="@+id/cnf_werewolf_count_picker"
+            style="@style/SetupRoleCountPicker" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/SetupRoleCountText"
+            android:text="@string/cnf_villager_count_label" />
+
+        <com.marchesi.federico.lupusintabula.NumberPickerView
+            android:id="@+id/cnf_villager_count_picker"
+            style="@style/SetupRoleCountPicker" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/SetupRoleCountText"
+            android:text="@string/cnf_seer_count_label" />
+
+        <com.marchesi.federico.lupusintabula.NumberPickerView
+            android:id="@+id/cnf_seer_count_picker"
+            style="@style/SetupRoleCountPicker" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/SetupRoleCountText"
+            android:text="@string/cnf_doctor_count_label" />
+
+        <com.marchesi.federico.lupusintabula.NumberPickerView
+            android:id="@+id/cnf_doctor_count_picker"
+            style="@style/SetupRoleCountPicker" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/SetupRoleCountText"
+            android:text="@string/cnf_hunter_count_label" />
+
+        <com.marchesi.federico.lupusintabula.NumberPickerView
+            android:id="@+id/cnf_hunter_count_picker"
+            style="@style/SetupRoleCountPicker" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/SetupRoleCountText"
+            android:text="@string/cnf_witch_count_label" />
+
+        <com.marchesi.federico.lupusintabula.NumberPickerView
+            android:id="@+id/cnf_witch_count_picker"
+            style="@style/SetupRoleCountPicker" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/SetupRoleCountText"
+            android:text="@string/cnf_priest_count_label" />
+
+        <com.marchesi.federico.lupusintabula.NumberPickerView
+            android:id="@+id/cnf_priest_count_picker"
+            style="@style/SetupRoleCountPicker" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/SetupRoleCountText"
+            android:text="@string/cnf_amor_count_label" />
+
+        <com.marchesi.federico.lupusintabula.NumberPickerView
+            android:id="@+id/cnf_amor_count_picker"
+            style="@style/SetupRoleCountPicker" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/SetupRoleCountText"
+            android:text="@string/cnf_drunk_count_label" />
+
+        <com.marchesi.federico.lupusintabula.NumberPickerView
+            android:id="@+id/cnf_drunk_count_picker"
+            style="@style/SetupRoleCountPicker" />
+
+    </LinearLayout>
+
+</LinearLayout>

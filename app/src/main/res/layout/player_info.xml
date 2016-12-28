@@ -16,14 +16,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/tan_background"
+    android:background="@android:color/white"
     android:orientation="horizontal">
 
     <CheckBox
         android:id="@+id/cbx_player"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        tools:text="Player Name" />
 
 
     <TextView
@@ -31,18 +33,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:fontFamily="sans-serif"
         android:gravity="center_vertical"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@android:color/black"
+        android:visibility="gone"
         tools:text="Player Name" />
 
     <ImageView
         android:id="@+id/delete_player_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/delete_button_padding"
-        android:layout_gravity="center"
+        android:layout_gravity="right"
         android:background="?android:selectableItemBackground"
+        android:padding="@dimen/delete_button_padding"
         android:src="@drawable/ic_delete_black_24dp" />
 
 </LinearLayout>

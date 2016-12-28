@@ -27,7 +27,7 @@ public class PlayerAdapter extends ArrayAdapter<PlayerClass> {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         // Get the data item for this position
 
 
@@ -36,14 +36,18 @@ public class PlayerAdapter extends ArrayAdapter<PlayerClass> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.player_info, parent, false);
         }
 
+        PlayerClass mPlayer = getItem(position);
         CheckBox selectPlayerCheckBox = (CheckBox) convertView.findViewById(R.id.cbx_player);
 
         selectPlayerCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 mPlayers.get(position).setIsPlayerSelected(isChecked);
+
             }
         });
+
+        selectPlayerCheckBox.setChecked(mPlayer.getIsPlayerSelected());
 
         //Handle buttons and add onClickListeners
         ImageView deleteBtn = (ImageView) convertView.findViewById(R.id.delete_player_button);
@@ -57,18 +61,29 @@ public class PlayerAdapter extends ArrayAdapter<PlayerClass> {
             }
         });
 
-        PlayerClass mPlayer = getItem(position);
 
         // Lookup view for data population
-        TextView tvName = (TextView) convertView.findViewById(R.id.player_name);
+//        TextView tvName = (TextView) convertView.findViewById(R.id.player_name);
+        CheckBox tvName = (CheckBox) convertView.findViewById(R.id.cbx_player);
         // Populate the data into the template view using the data object
         tvName.setText(mPlayer.getPlayerName());
 
         CheckBox playerCheckBox = (CheckBox) convertView.findViewById(R.id.cbx_player);
-        playerCheckBox.setChecked(mPlayer.getIsPlayerSelected());
 
         // Return the completed view to render on screen
         return convertView;
+    }
+
+    private boolean canStartGame() {
+        if (mPlayers == null) {
+            return false;
+        }
+        for (PlayerClass item : mPlayers) {
+            if (item.getIsPlayerSelected()) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

@@ -17,10 +17,10 @@
 
         <Button
             android:id="@+id/add_player_button"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:background="@color/colorAccent"
 
             android:text="@string/add_player_button" />
 
@@ -40,25 +40,29 @@
             android:layout_below="@id/add_player_text"
             android:gravity="top"
             android:hint="@string/name_existing"
+            android:selectAllOnFocus="false"
+            android:textAppearance="@android:style/TextAppearance.Material.Small"
             android:textColorHint="@color/colorAccent"
-            android:textSize="14sp"
             android:visibility="gone" />
     </RelativeLayout>
 
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
+        android:animateLayoutChanges="true"
         android:gravity="top">
 
     </ListView>
 
     <Button
         android:id="@+id/button_next"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
+        android:layout_margin="@dimen/button_margin"
+        android:background="@color/colorAccent"
         android:text="@string/next" />
 
 </LinearLayout>
