@@ -1,15 +1,14 @@
 package com.marchesi.federico.lupusintabula;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -19,23 +18,22 @@ import java.util.ArrayList;
 
 public class PlayerAdapter extends ArrayAdapter<PlayerClass> {
 
-    ArrayList<PlayerClass> mPlayers;
+    private ArrayList<PlayerClass> mPlayers;
 
     public PlayerAdapter(Context context, ArrayList<PlayerClass> players) {
         super(context, 0, players);
         mPlayers = players;
     }
 
+    @NonNull
     @Override
     public View getView(final int position, View convertView, final ViewGroup parent) {
-        // Get the data item for this position
-
-
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.player_info, parent, false);
         }
 
+        // Get the data item for this position
         PlayerClass mPlayer = getItem(position);
         CheckBox selectPlayerCheckBox = (CheckBox) convertView.findViewById(R.id.cbx_player);
 
@@ -64,11 +62,9 @@ public class PlayerAdapter extends ArrayAdapter<PlayerClass> {
 
         // Lookup view for data population
 //        TextView tvName = (TextView) convertView.findViewById(R.id.player_name);
-        CheckBox tvName = (CheckBox) convertView.findViewById(R.id.cbx_player);
-        // Populate the data into the template view using the data object
-        tvName.setText(mPlayer.getPlayerName());
 
-        CheckBox playerCheckBox = (CheckBox) convertView.findViewById(R.id.cbx_player);
+        // Populate the data into the template view using the data object
+        selectPlayerCheckBox.setText(mPlayer.getPlayerName());
 
         // Return the completed view to render on screen
         return convertView;

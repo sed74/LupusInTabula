@@ -1,18 +1,17 @@
 package com.marchesi.federico.lupusintabula;
 
-import java.util.ArrayList;
 
 /**
  * Created by federico.marchesi on 23/12/2016.
  */
 
-public class PlayerClass {
+class PlayerClass {
     private String mPlayerName;
     private boolean mIsPlayerSelected;
     private Role mRole;
 
 
-    public PlayerClass(String playerName, boolean isPlayerSelected){
+    PlayerClass(String playerName, boolean isPlayerSelected){
         mIsPlayerSelected = isPlayerSelected;
         mPlayerName = playerName;
     }
@@ -22,13 +21,13 @@ public class PlayerClass {
         mRole = role;
     }
 
-    public String getPlayerName(){return mPlayerName;}
+    String getPlayerName(){return mPlayerName;}
 
-    public boolean getIsPlayerSelected(){return mIsPlayerSelected;}
+    boolean getIsPlayerSelected(){return mIsPlayerSelected;}
 
     public Role getRole() {return mRole;}
 
-    public void setIsPlayerSelected(boolean isSelected) {mIsPlayerSelected = isSelected;}
+    void setIsPlayerSelected(boolean isSelected) {mIsPlayerSelected = isSelected;}
 
 
 }
